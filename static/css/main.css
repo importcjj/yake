@@ -10,12 +10,12 @@ body {
     /*background-color: #ebe7df;*/
 }
 
-::selection{
+::selection {
     background: #262a30;
     color: #fff;
 }
 
-::-moz-selection{
+::-moz-selection {
     background: #262a30;
     color: #fff;
 }
