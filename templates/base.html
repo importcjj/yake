@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+        <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+        {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<!-- {% include 'github.html' %} -->
+        <input id="header-toggle" type="checkbox">
+        <header id="banner" class="body">
+                <h1><a href="{{ SITEURL }}/">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+                <nav><ul>
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                {% if DISPLAY_PAGES_ON_MENU -%}
+                {% for pg in PAGES %}
+                    <li{% if pg == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if DISPLAY_CATEGORIES_ON_MENU -%}
+                {% for cat, null in categories %}
+                    <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% endfor %}
+                {% endif %}
+                </ul></nav>
+        </header><!-- /#banner -->
+        <aside class="side-bar">
+            <ul>
+                <li><a href="{{ SITEURL }}/"><i class="fa fa-info fa-lg"></i></a></li>
+                <li><a href="{{ SITEURL }}/categories.html"><i class="fa fa-book fa-lg"></i></a></li>
+                <li><a href="{{ SITEURL }}/archives.html"><i class="fa fa-archive fa-lg"></i></a></li>
+                <li><a href="{{ SITEURL }}/tags.html"><i class="fa fa-tags fa-lg"></i></a></li>
+                <li><a href="{{ SITEURL }}/authors.html"><i class="fa fa-users fa-lg"></i></a></li>
+                {% if GITHUB_URL %}<li><a href="{{ GITHUB_URL }}"><i class="fa fa-github fa-lg"></i></a></li>{% endif %}
+                {% if WECHAT%}<li><a href="#"><i class="fa fa-wechat fa-lg"></i></a></li> {% endif %}
+                {% if FACEBOOK %}<li><a href="{{ FACEBOOK }}"><i class="fa fa-facebook-square fa-lg"></i></a></li>{% endif %}
+            </ul>
+        </aside>
+        <div class="tool-btns">
+            <label id="header-toggle-btn" class='tool-btn' for="header-toggle"><i class="fa fa-bars"></i></label>
+            <label id="back-to-top" class="tool-btn"><i class="fa fa-arrow-up"></i></label>
+        </div>
+        <div class="content">
+        {% block content %}
+        {% endblock %}
+        <section id="extras" class="body">
+        {% if LINKS %}
+                <div class="blogroll">
+                        <h2>Links</h2>
+                        <ul>
+                        {% for name, link in LINKS %}
+                            <li><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                </div><!-- /.blogroll -->
+        {% endif %}
+        {% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            {% if FEED_ALL_ATOM %}
+                            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            {% endif %}
+                            {% if FEED_ALL_RSS %}
+                            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            {% endif %}
+
+                        {% for name, link in SOCIAL %}
+                            <li><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                </div><!-- /.social -->
+        {% endif %}
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </p><!-- /#about -->
+                <p>The theme is by <a href="https://github.com/importcjj/yake">importcjj</a>, thanks!</p>
+                <p>托管于 <a href="https://github.com">github</a> 和 <a href="https://coding.net/">coding</a>,  
+                并借助 <a href="https://travis-ci.com/">travis ci</a> 完成自动编译发布.
+                </p>
+                {% if BUILD_STATUS_URL %}
+                <img src="{{ BUILD_STATUS_URL }}"/>
+                {% endif %}
+        </footer><!-- /#contentinfo -->
+        </div>
+
+{% include 'scripts.html' %}
+{% include 'analytics.html' %}
+{% include 'disqus_script.html' %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+{% if articles %}
+    <ul id="posts-list" class="hfeed">
+    {% for article in articles_page.object_list %}
+
+        {# First item #}
+        {% if loop.first and not articles_page.has_previous() %}
+            <li><aside id="featured" class="body">
+                <article>
+                    {% include 'article_infos.html' %}
+                </article>
+            </aside></li><!-- /#featured -->
+        {# other items #}
+        {% else %}
+            {% if loop.first %}
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
+            {% endif %}
+            <li><article class="hentry">
+
+                <div class="entry-content">
+                {% include 'article_infos.html' %}
+                </div><!-- /.entry-content -->
+            </article></li>
+        {% endif %}
+        {% if loop.last %}
+            {% if loop.length > 1 or articles_page.has_other_pages() %}
+                {% if articles_page.has_other_pages() %}
+                    {% include 'pagination.html' %}
+                {% endif %}
+                </section><!-- /#content -->
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </ul><!-- /#posts-list -->
+{% else %}
+<section id="content" class="body">
+<h2>Pages</h2>
+    {% for page in PAGES %}
+        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+</section>
+{% endif %}
+{% endblock content %}
