@@ -11,13 +11,13 @@ body {
 }
 
 ::selection {
-    background: #262a30;
-    color: #fff;
+    background: #fff;
+    color: #229ffd;
 }
 
 ::-moz-selection {
-    background: #262a30;
-    color: #fff;
+    background: #fff;
+    color: #229ffd;
 }
 
 header#banner{
