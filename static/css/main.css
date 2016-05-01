@@ -225,20 +225,42 @@ p.copyright:hover {
 section#extras {
     padding: 5px;
     background-color: #f5f6f5;
-    margin-bottom: 3px;
+    margin: 70px 0;
 }
 
 section#extras ul {
     display: block;
+    list-style: none;
+    padding: 10px 0;
 }
 
 section#extras h2 {
     width: 100px;
     margin-left: 10px;
+    color: #ccc;
 }
 
 section#extras ul li {
     padding: 3px;
+}
+
+section#extras ul li a.link-name {
+    display: inline-block;
+    Background: #aaa;
+    color: #FFF;
+    width: 25%;
+    padding-right: 15px;
+    font-size: 18px;
+    margin-right: 9px;
+    text-align: center;
+}
+
+section#extras ul li a.link-name:hover {
+    color: #000;
+}
+
+section#extras ul li a.link-href {
+    font-size: 13px;
 }
 
 footer#contentinfo {
