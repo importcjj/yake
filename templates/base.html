@@ -60,10 +60,13 @@
         <section id="extras" class="body">
         {% if LINKS %}
                 <div class="blogroll">
-                        <h2>Links</h2>
+                        <h2>友情链接</h2>
                         <ul>
                         {% for name, link in LINKS %}
-                            <li><a href="{{ link }}">{{ name }}</a></li>
+                            <li>
+                                <a class="link-name" href="{{ link }}">{{ name }}</a>
+                                <a class="link-href">{{ link }}</a>
+                            </li>
                         {% endfor %}
                         </ul>
                 </div><!-- /.blogroll -->
