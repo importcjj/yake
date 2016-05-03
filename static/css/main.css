@@ -224,7 +224,7 @@ p.copyright:hover {
 
 section#extras {
     padding: 5px;
-    background-color: #f5f6f5;
+    background-color: #333;
     margin: 70px 0;
 }
 
@@ -246,13 +246,14 @@ section#extras ul li {
 
 section#extras ul li a.link-name {
     display: inline-block;
-    Background: #aaa;
-    color: #FFF;
+    color: rgb(27, 188, 155);
     width: 25%;
-    padding-right: 15px;
     font-size: 18px;
     margin-right: 9px;
-    text-align: center;
+    text-align: right;
+    border: solid rgb(27, 188, 155);
+    border-width: 0 2px 0 0;
+    padding: 2px 10px;
 }
 
 section#extras ul li a.link-name:hover {
