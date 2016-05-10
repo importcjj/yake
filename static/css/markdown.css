@@ -431,7 +431,7 @@
     color: #969896
 }
 
-.si, .pl-s .pl-v {
+.si, .mi, .pl-s .pl-v {
     color: #0086b3
 }
 
@@ -447,7 +447,7 @@
     color: #63a35c
 }
 
-.kn, .k, .o, .kd {
+.kn, .k, .o, .kd, .nb {
     color: #a71d5d
 }
 
