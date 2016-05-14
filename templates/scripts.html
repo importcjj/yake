@@ -1,21 +1,39 @@
 <script type="text/javascript">
-(function() {
-    var $ = function(id) {return document.getElementById(id)};
-    var scrollTop = function() {return document.documentElement.scrollTop || document.body.scrollTop};
-    var backToTop = function() {
-        var fromTop = scrollTop();
-        if(fromTop){
-            window.scrollBy(0, -40);
-            window.timeout = setTimeout(backToTop, 5);
-        } else{
-            clearTimeout(window.timeout);
-        }
-    };
+// index animate
+$('.animated').map(function(i, node) {
+    var timeout = (i + 1) * 270;
+    console.log(timeout);
+    setTimeout(function(){
+        $(node).addClass('fadeInUp');
+        $(node).css('opacity', 1);
+    }, timeout);
+}.bind(this));
 
-    $('back-to-top').onclick = function(evt) {backToTop()};
+
+// back to page top
+(function() {
+    // var $ = function(id) {return document.getElementById(id)};
+    // var scrollTop = function() {return document.documentElement.scrollTop || document.body.scrollTop};
+    // var backToTop = function() {
+    //     var fromTop = scrollTop();
+    //     if(fromTop){
+    //         window.scrollBy(0, -40);
+    //         window.timeout = setTimeout(backToTop, 5);
+    //     } else{
+    //         clearTimeout(window.timeout);
+    //     }
+    // };
+
+    // $('back-to-top').onclick = function(evt) {backToTop()};
+    $('#back-to-top').click(function() {
+        $('body').animate({'scrollTop': 0}, 800);
+    });
 
     window.onscroll = function(evt) {
-        if(scrollTop() > 500) {$('back-to-top').style.display = 'block';}else {$('back-to-top').style.display = 'none';}
+        if($('body').scrollTop() > 500) {
+            $('#back-to-top').css('display','block');
+        } else {
+            $('#back-to-top').css('display', 'none');}
     };
 
 }())

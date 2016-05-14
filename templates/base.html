@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery-1.12.3.min.js"></script>
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
         {% endif %}
@@ -57,7 +58,7 @@
         <div class="content">
         {% block content %}
         {% endblock %}
-        <section id="extras" class="body">
+        <section id="extras" class="body animated" style="opacity: 0">
         {% if LINKS %}
                 <div class="blogroll">
                         <h2>Links</h2>
@@ -71,26 +72,9 @@
                         </ul>
                 </div><!-- /.blogroll -->
         {% endif %}
-        <!--{% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}-->
-        <!--        <div class="social">-->
-        <!--                <h2>social</h2>-->
-        <!--                <ul>-->
-        <!--                    {% if FEED_ALL_ATOM %}-->
-        <!--                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate">atom feed</a></li>-->
-        <!--                    {% endif %}-->
-        <!--                    {% if FEED_ALL_RSS %}-->
-        <!--                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate">rss feed</a></li>-->
-        <!--                    {% endif %}-->
-
-        <!--                {% for name, link in SOCIAL %}-->
-        <!--                    <li><a href="{{ link }}">{{ name }}</a></li>-->
-        <!--                {% endfor %}-->
-        <!--                </ul>-->
-        <!--        </div><!-- /.social -->
-        <!--{% endif %}-->
         </section><!-- /#extras -->
 
-        <footer id="contentinfo" class="body">
+        <footer id="contentinfo" class="body animated" style="opacity: 0">
                 <p>Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </p><!-- /#about -->
                 <p>The theme is by <a href="https://github.com/importcjj/yake">importcjj</a>, thanks!</p>

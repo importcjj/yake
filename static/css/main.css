@@ -1,4 +1,5 @@
 
+@import url(./animate.min.css);
 @import url(./markdown.css);
 @import url(./font-awesome.min.css);
 
@@ -186,7 +187,7 @@ abbr.published, .modified {
 
 a.category {
     display: inline-block;
-    width: 60px;
+    width: 65px;
     text-align: center;
     padding: 0px 8px;
     line-height: 25px;
@@ -224,7 +225,8 @@ p.copyright:hover {
 
 section#extras {
     padding: 5px;
-    background-color: #333;
+    background-color: #eee;
+    border-radius: 3px;
     margin: 70px 0;
 }
 
