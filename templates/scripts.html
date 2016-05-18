@@ -4,7 +4,7 @@ $('.animated').map(function(i, node) {
     var timeout = (i + 1) * 270;
     console.log(timeout);
     setTimeout(function(){
-        $(node).addClass('fadeInUp');
+        $(node).addClass('fadeInLeft');
         $(node).css('opacity', 1);
     }, timeout);
 }.bind(this));
