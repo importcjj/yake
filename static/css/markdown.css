@@ -379,7 +379,7 @@
 .markdown .highlight pre, .markdown pre {
     padding: 16px;
     overflow: auto;
-    font-family: Consolas;
+    font-family: "Source Code Pro", Menlo, Monaco, Consolas, "DejaVu Sans Mono", Inconsolata, monospace;
     font-size: 85%;
     line-height: 1.45;
     background-color: rgba(111, 111, 111, 0.1);
